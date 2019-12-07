@@ -4,13 +4,13 @@
  */
 
 // an email address that will be in the From field of the email.
-$from = $_POST['name'];;
+$from = $_POST['email'];
 
 // an email address that will receive the email with the output of the form
-$sendTo = 'aashwinvats@gmail.com';
+$sendTo = "aashwinvats@gmail.com";
 
 // subject of the email
-$subject = $_POST['subject'];
+$subject = 'New message from contact form';
 
 // form field names and their translations.
 // array variable name => Text to appear in the email
@@ -20,7 +20,7 @@ $fields = array('name' => 'Name', 'surname' => 'Surname', 'phone' => 'Phone', 'e
 $okMessage = 'Contact form successfully submitted. Thank you, I will get back to you soon!';
 
 // If something goes wrong, we will display this message.
-$errorMessage = 'Sorry your message could not be sent.';
+$errorMessage = 'There was an error while submitting the form. Please try again later';
 
 /*
  *  LET'S DO THE SENDING
@@ -34,7 +34,7 @@ try
 
     if(count($_POST) == 0) throw new \Exception('Form is empty');
             
-    $emailText = "You have a new message from your contact form.\n "+ $_POST['message'] ;
+    $emailText = "You have a new message from your contact form\n=============================\n";
 
     foreach ($_POST as $key => $value) {
         // If the field exists in the $fields array, include it in the email 
